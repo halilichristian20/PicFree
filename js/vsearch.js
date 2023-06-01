@@ -58,7 +58,7 @@ async function loadMoreVideos() {
 // ################### Fetch Videos from Pexels
 
 async function fetchPexelVideoAPI(query) {
-  const apiUrl = `https://api.pexels.com/videos/search?${query}page=${currentPage}&per_page=${perPage}`;
+  const apiUrl = `https://api.pexels.com/videos/search?${query}&page=${currentPage}&per_page=${perPage}`;
   const apiKey = "TQk1fqYBhfZj0EikkQiZSF31I3doyO7RvpZwe8I4QZpNiREVQhU2jxTJ";
   const response = await fetch(apiUrl, {
     headers: { Authorization: apiKey },
