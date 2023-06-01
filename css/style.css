@@ -188,6 +188,17 @@ h3 {
   opacity: 0.8;
 }
 
+/* Search Bar */
+
+#search-btn {
+  background-color: #07a081;
+  border: 1px solid transparent
+}
+
+#search-btn:hover {
+  opacity: 0.9;
+}
+
 
 @media (max-width: 647px) {
 
