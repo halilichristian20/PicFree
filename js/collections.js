@@ -50,7 +50,7 @@ async function displayCollection() {
     // max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700
 
     div.innerHTML = `<a class="" href="${photo.links.html}">
-    <img class="rounded-t-lg h-96 w-screen" src="${photo.cover_photo.urls.small}" alt="img" />
+    <img class="rounded-t-lg h-96 w-full" src="${photo.cover_photo.urls.full}" alt="img" />
     </a>
   <div class="p-2">
     <a href="${photo.links.html}">
