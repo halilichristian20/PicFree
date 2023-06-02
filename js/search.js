@@ -1,7 +1,7 @@
 const global = {
   currentPage: window.location.pathname,
 };
-const perPage = 15;
+const perPage = 20;
 let currentPage = 1;
 
 const API_KEY = "XYT5T3yPOk1cO09fCRPeoJGqg2u8ct25prLl69N3dlI";
@@ -81,17 +81,8 @@ function highlightActiveLink() {
 
 function init() {
   switch (global.currentPage) {
-    case "/":
-    case "/index.html":
-      displayImages();
-      displayRandomBG();
-      break;
-    case "/collections.html":
-      break;
     case "/search-image.html":
       searchImages();
-      break;
-    case "/videos.html":
       break;
   }
   highlightActiveLink();

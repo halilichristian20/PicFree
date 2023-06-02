@@ -3,7 +3,7 @@ const global = {
 };
 const videosWrapper = document.querySelector(".images");
 
-const perPage = 15;
+const perPage = 20;
 let currentPage = 1;
 
 // ################### Fetch videos of Search Term
@@ -92,15 +92,6 @@ function playVideo(e) {
 
 function init() {
   switch (global.currentPage) {
-    case "/":
-    case "/index.html":
-      break;
-    case "/collections.html":
-      break;
-    case "/imageSearch.html":
-      break;
-    case "/videos.html":
-      break;
     case "/search-video.html":
       searchVideos();
       break;

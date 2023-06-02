@@ -3,7 +3,7 @@ const global = {
 };
 const videosWrapper = document.querySelector(".images");
 
-const perPage = 15;
+const perPage = 20;
 let currentPage = 1;
 
 // Display a random background from /photos/random via Unplash
@@ -91,13 +91,6 @@ function playVideo(e) {
 
 function init() {
   switch (global.currentPage) {
-    case "/":
-    case "/index.html":
-      break;
-    case "/collections.html":
-      break;
-    case "/search.html":
-      break;
     case "/videos.html":
       generateVideo();
       displayRandomBG();
@@ -122,7 +115,7 @@ videosWrapper.addEventListener("mouseout", (e) => {
 
 window.addEventListener("scroll", () => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  if (scrollTop + clientHeight >= scrollHeight) {
+  if (scrollTop + clientHeight >= scrollHeight - 6) {
     loadMoreVideos();
   }
 });

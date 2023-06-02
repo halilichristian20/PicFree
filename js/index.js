@@ -93,10 +93,6 @@ function init() {
       displayImages();
       displayRandomBG();
       break;
-    case "/collections.html":
-      break;
-    case "/videos.html":
-      break;
   }
   highlightActiveLink();
 }
@@ -105,7 +101,7 @@ function init() {
 
 window.addEventListener("scroll", () => {
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-  if (scrollTop + clientHeight >= scrollHeight) {
+  if (scrollTop + clientHeight >= scrollHeight - 6) {
     loadMoreImages();
   }
 });
