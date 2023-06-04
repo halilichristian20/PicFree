@@ -112,7 +112,7 @@ function switchThemeMode() {
 switchThemeMode();
 
 displayImages();
-// displayRandomBG();
+displayRandomBG();
 
 // ########## Event Listeners
 
