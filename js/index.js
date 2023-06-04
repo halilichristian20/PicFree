@@ -7,7 +7,7 @@ const global = {
 const perPage = 15;
 let currentPage = 1;
 
-const API_KEY = "F_AlrteKQ31bG2Gz9qt6eP94IkHZdOjnYQafFuuKFGc";
+const API_KEY = "XYT5T3yPOk1cO09fCRPeoJGqg2u8ct25prLl69N3dlI";
 const API_URL = "https://api.unsplash.com";
 
 // ########## Display Random Background
@@ -20,6 +20,7 @@ async function displayRandomBG() {
   background.style.backgroundSize = "cover";
   background.style.backgroundPosition = "center";
   background.style.backgroundRepeat = "no-repeat";
+  background.style.backgroundColor;
 }
 
 // ########## Display Images
@@ -65,7 +66,7 @@ async function fetchAPIData(endpoint, query) {
 
 async function fetchAPIRandom(endpoint) {
   const response = await fetch(
-    `${API_URL}${endpoint}?query=dark?orientation=landscape&client_id=${API_KEY}`
+    `${API_URL}${endpoint}?query=bright?orientation=landscape&client_id=${API_KEY}`
   );
 
   const data = await response.json();
@@ -73,29 +74,31 @@ async function fetchAPIRandom(endpoint) {
   return data;
 }
 
-// ########## Highlight Active Link
+// ########## Dark Mode & localStorage
 
-function highlightActiveLink() {
-  const links = document.querySelectorAll(".nav-link");
-  links.forEach((link) => {
-    if (link.getAttribute("href") === global.currentPage) {
-      link.classList.add("active");
+const darkToggle = document.querySelector("#darkModeButton");
+const targetBody = document.querySelector("body");
+let theme = localStorage.getItem("theme");
+if (theme != null) {
+  targetBody.classList.toggle("dark");
+}
+
+function switchThemeMode() {
+  darkToggle.addEventListener("click", () => {
+    let theme = localStorage.getItem("theme");
+    if (theme != null) {
+      localStorage.removeItem("theme");
+    } else {
+      localStorage.setItem("theme", "dark");
     }
+
+    targetBody.classList.toggle("dark");
   });
 }
+switchThemeMode();
 
-// ########## Page Router
-
-function init() {
-  switch (global.currentPage) {
-    case "/":
-    case "/index.html":
-      displayImages();
-      displayRandomBG();
-      break;
-  }
-  highlightActiveLink();
-}
+displayImages();
+displayRandomBG();
 
 // ########## Event Listeners
 
@@ -105,5 +108,3 @@ window.addEventListener("scroll", () => {
     loadMoreImages();
   }
 });
-
-document.addEventListener("DOMContentLoaded", init);

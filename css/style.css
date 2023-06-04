@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
 * {
   margin: 0;
@@ -7,7 +7,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-
 h3 {
   text-transform: uppercase;
 }
@@ -15,10 +14,10 @@ h3 {
 /* ##### Hero ##### */
 
 #hero {
-    height: 100%;
-    min-width: 100%;
-    margin: auto;
-    position: relative;
+  height: 100%;
+  min-width: 100%;
+  margin: auto;
+  position: relative;
 }
 
 #search-nav {
@@ -30,25 +29,28 @@ h3 {
 }
 
 #hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
-  
+.dark #hero::before {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
 #hero > .container {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 #hero > nav {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 #hero > div {
@@ -62,13 +64,10 @@ h3 {
 
 /* ##### Navbar ##### */
 
-
 /* Hover Effects */
 
 #navbar-default li {
   border-bottom: 2px solid transparent;
-
-  
 }
 
 #navbar-default li:hover {
@@ -76,19 +75,21 @@ h3 {
 }
 
 .active {
-  border-bottom: white 2px solid;
+  border-bottom: #07a081 2px solid;
+}
 
+.dark .active {
+  border-bottom: #07a081 2px solid;
 }
 
 /* Hover Effects Image and Video Search */
 
 #navbar-default-search li {
   border-bottom: 2px solid transparent;
-  
 }
 
 #navbar-default-search li:hover {
-  border-bottom: #333 2px solid;
+  border-bottom: #07a081 2px solid;
   opacity: 0.8;
 }
 
@@ -103,7 +104,6 @@ h3 {
 }
 
 /* ##### Image and Video Gallery */
-
 
 .gallery {
   display: flex;
@@ -152,13 +152,13 @@ h3 {
 }
 
 .photographer a {
-    display: flex;
+  display: flex;
 }
 
 .photographer img {
   font-size: 1.2rem;
   margin-right: 10px;
-  border-radius: 100%;
+  border-radius: 50%;
 }
 
 .photographer i {
@@ -171,7 +171,8 @@ h3 {
   font-size: 0.98rem;
   padding-top: 3px;
 }
-.gallery button, i {
+.gallery button,
+i {
   outline: none;
   border: none;
   cursor: pointer;
@@ -197,53 +198,14 @@ h3 {
 
 #search-btn {
   background-color: #07a081;
-  border: 1px solid transparent
+  border: 1px solid transparent;
 }
 
 #search-btn:hover {
   opacity: 0.9;
 }
 
-
 @media (max-width: 647px) {
-
-#search-form {
-  margin-top: 12px;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-#search-query {
-  align-items: center;
-}
-
-.photographer img {
-  font-size: 1.5rem;
-  margin-right: 10px;
-  border-radius: 100%;
-}
-
-.photographer span {
-  font-size: 1.2rem;
-  padding-top: 3px;
-}
-
-.details button {
-  background: #fff;
-  font-size: 1.3rem;
-  padding: 3px 8px;
-}
-
-
-
-/* * {
-  overflow-x: hidden;
-} */
-
-}
-
-@media (max-width: 984px) {
   #search-form {
     margin-top: 12px;
     width: 100%;
@@ -251,27 +213,29 @@ h3 {
     align-items: center;
   }
 
-  .photographer img {
-    font-size: 2 rem;
-    margin-right: 10px;
-    border-radius: 100%;
-  }
-  
-  .photographer span {
-    font-size: 1.4rem;
-    padding-top: 3px;
-  }
-  
-  .details button {
-    background: #fff;
-    font-size: 1rem;
-    padding: 3px 8px;
+  #search-query {
+    align-items: center;
   }
 
-  .photographer i {
+/*   .photographer img {
     font-size: 1.5rem;
     margin-right: 10px;
-    margin-top: 6px;
   }
 
+  .photographer span {
+    font-size: 1.2rem;
+    padding-top: 3px;
+  }
+
+  .details button {
+    font-size: 1.2rem;
+    padding: 3px 8px;
+  }
+} */
+
+@media (max-width: 984px) {
+  #search-form {
+    margin-top: 12px;
+    width: 100%;
+  }
 }

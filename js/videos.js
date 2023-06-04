@@ -87,17 +87,31 @@ function playVideo(e) {
   video.play();
 }
 
-// ################### Routes
+// ########## Dark Mode & localStorage
 
-function init() {
-  switch (global.currentPage) {
-    case "/videos.html":
-      generateVideo();
-      displayRandomBG();
-      break;
-  }
-  //   highlightActiveLink();
+const darkToggle = document.querySelector("#darkModeButton");
+const targetBody = document.querySelector("body");
+let theme = localStorage.getItem("theme");
+if (theme != null) {
+  targetBody.classList.toggle("dark");
 }
+
+function switchThemeMode() {
+  darkToggle.addEventListener("click", () => {
+    let theme = localStorage.getItem("theme");
+    if (theme != null) {
+      localStorage.removeItem("theme");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+
+    targetBody.classList.toggle("dark");
+  });
+}
+switchThemeMode();
+
+generateVideo();
+displayRandomBG();
 
 // ################### Event Listeners
 
@@ -119,5 +133,3 @@ window.addEventListener("scroll", () => {
     loadMoreVideos();
   }
 });
-
-document.addEventListener("DOMContentLoaded", init);
