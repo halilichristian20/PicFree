@@ -23,6 +23,19 @@ async function displayRandomBG() {
   background.style.backgroundColor;
 }
 
+const downloadImg = (imgURL) => {
+  dlName = "image.jpg";
+  fetch(imgURL)
+    .then((res) => res.blob())
+    .then((file) => {
+      console.log(file);
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(file);
+      a.download = dlName;
+      a.click();
+    })
+    .catch(() => alert("Failed to download the image!"));
+};
 // ########## Display Images
 
 async function displayImages() {
@@ -37,7 +50,8 @@ async function displayImages() {
           <a href="${img.user.links.html}"> <img id="profile-image" src="${img.user.profile_image.small}" alt="img" style="width:30px")>
           <span class="hover:underline">${img.user.name}</span></a>
           </div>
-          <button><i class="fa-solid fa-download"></i></button>
+          <button onclick="downloadImg('${img.urls.regular}')">
+          <i class="fa-solid fa-download"></i></button>
           </div></li>
           `
     )
@@ -98,7 +112,7 @@ function switchThemeMode() {
 switchThemeMode();
 
 displayImages();
-displayRandomBG();
+// displayRandomBG();
 
 // ########## Event Listeners
 

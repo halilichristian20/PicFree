@@ -184,8 +184,10 @@ i {
   font-size: 1rem;
   padding: 3px 8px;
 }
-.details .download-btn:hover {
-  background: #f2f2f2;
+
+.details button:hover {
+  opacity: 0.8;
+  outline: #07a081 1px solid;
 }
 
 /* Collections */
@@ -217,7 +219,7 @@ i {
     align-items: center;
   }
 
-/*   .photographer img {
+  /*   .photographer img {
     font-size: 1.5rem;
     margin-right: 10px;
   }
@@ -232,6 +234,13 @@ i {
     padding: 3px 8px;
   }
 } */
+
+  @media (max-width: 640px) {
+    #radioItems {
+      width: 40%;
+    }
+  }
+}
 
 @media (max-width: 984px) {
   #search-form {
