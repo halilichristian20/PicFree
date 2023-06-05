@@ -40,7 +40,7 @@ h3 {
 }
 
 .dark #hero::before {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 #hero > .container {
@@ -71,14 +71,10 @@ h3 {
 }
 
 #navbar-default li:hover {
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .active {
-  border-bottom: #07a081 2px solid;
-}
-
-.dark .active {
   border-bottom: #07a081 2px solid;
 }
 
@@ -235,16 +231,43 @@ i {
   }
 } */
 
-  @media (max-width: 640px) {
+  @media (min-width: 0) and (max-width: 640px) {
     #radioItems {
-      width: 40%;
+      display: flex;
+      min-width: 60%;
     }
   }
 }
 
 @media (max-width: 984px) {
   #search-form {
-    margin-top: 12px;
-    width: 100%;
+    width: 80%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1038px) {
+  #theme-toggle {
+    margin-left: 70px;
+    margin-right: 20px;
+  }
+}
+
+@media (min-width: 414px) and (max-width: 721px) {
+  #theme-toggle {
+    margin-left: 80px;
+    margin-right: 20px;
+  }
+
+  #radioItems {
+    width: 35%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 413px) {
+  #main-navbar {
+    justify-content: space-between;
+  }
+  #theme-toggle {
+    margin: auto;
   }
 }

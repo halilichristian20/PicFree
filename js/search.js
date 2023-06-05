@@ -116,7 +116,7 @@ async function fetchPexelVideoAPI(query) {
 // ################### Fetch Images from Unsplash
 
 async function fetchAPIData(endpoint) {
-  const API_KEY = "F_AlrteKQ31bG2Gz9qt6eP94IkHZdOjnYQafFuuKFGc";
+  const API_KEY = "XYT5T3yPOk1cO09fCRPeoJGqg2u8ct25prLl69N3dlI";
   const API_URL = "https://api.unsplash.com";
   const response = await fetch(
     `${API_URL}${endpoint}&page=${currentPage}&per_page=${perPage}&client_id=${API_KEY}`
@@ -128,26 +128,59 @@ async function fetchAPIData(endpoint) {
 
 // ########## Dark Mode & localStorage
 
-const darkToggle = document.querySelector("#darkModeButton");
-const targetBody = document.querySelector("body");
-let theme = localStorage.getItem("theme");
-if (theme != null) {
-  targetBody.classList.toggle("dark");
+if (
+  localStorage.getItem("color-theme") === "dark" ||
+  (!("color-theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
 }
 
-function switchThemeMode() {
-  darkToggle.addEventListener("click", () => {
-    let theme = localStorage.getItem("theme");
-    if (theme != null) {
-      localStorage.removeItem("theme");
+let themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+let themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+
+// Change the icons inside the button based on previous settings
+if (
+  localStorage.getItem("color-theme") === "dark" ||
+  (!("color-theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  themeToggleLightIcon.classList.remove("hidden");
+} else {
+  themeToggleDarkIcon.classList.remove("hidden");
+}
+
+let themeToggleBtn = document.getElementById("theme-toggle");
+
+themeToggleBtn.addEventListener("click", function () {
+  // toggle icons inside button
+  themeToggleDarkIcon.classList.toggle("hidden");
+  themeToggleLightIcon.classList.toggle("hidden");
+
+  // if set via local storage previously
+  if (localStorage.getItem("color-theme")) {
+    if (localStorage.getItem("color-theme") === "light") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("color-theme", "dark");
     } else {
-      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("color-theme", "light");
     }
 
-    targetBody.classList.toggle("dark");
-  });
-}
-switchThemeMode();
+    // if NOT set via local storage previously
+  } else {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("color-theme", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("color-theme", "dark");
+    }
+  }
+});
+
 // ################### Show Alert on Search
 
 function showAlert(message) {

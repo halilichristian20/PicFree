@@ -45,15 +45,15 @@ async function displayImages() {
   imagesWrapper.innerHTML += results
     .map(
       (img) => `<li class="card"><img src="${img.urls.regular}" alt="img">
-      <div class="details">
-          <div class="photographer">
-          <a href="${img.user.links.html}"> <img id="profile-image" src="${img.user.profile_image.small}" alt="img" style="width:30px")>
-          <span class="hover:underline">${img.user.name}</span></a>
-          </div>
-          <button onclick="downloadImg('${img.urls.regular}')">
-          <i class="fa-solid fa-download"></i></button>
-          </div></li>
-          `
+          <div class="details">
+              <div class="photographer">
+              <a href="${img.user.links.html}"> <img id="profile-image" src="${img.user.profile_image.small}" alt="img" style="width:30px")>
+              <span class="hover:underline">${img.user.name}</span></a>
+              </div>
+              <button onclick="downloadImg('${img.urls.regular}')">
+              <i class="fa-solid fa-download"></i></button>
+              </div></li>
+              `
     )
     .join("");
 }
@@ -90,26 +90,58 @@ async function fetchAPIRandom(endpoint) {
 
 // ########## Dark Mode & localStorage
 
-const darkToggle = document.querySelector("#darkModeButton");
-const targetBody = document.querySelector("body");
-let theme = localStorage.getItem("theme");
-if (theme != null) {
-  targetBody.classList.toggle("dark");
+if (
+  localStorage.getItem("color-theme") === "dark" ||
+  (!("color-theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  document.documentElement.classList.add("dark");
+} else {
+  document.documentElement.classList.remove("dark");
 }
 
-function switchThemeMode() {
-  darkToggle.addEventListener("click", () => {
-    let theme = localStorage.getItem("theme");
-    if (theme != null) {
-      localStorage.removeItem("theme");
+let themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+let themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+
+// Change the icons inside the button based on previous settings
+if (
+  localStorage.getItem("color-theme") === "dark" ||
+  (!("color-theme" in localStorage) &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+  themeToggleLightIcon.classList.remove("hidden");
+} else {
+  themeToggleDarkIcon.classList.remove("hidden");
+}
+
+let themeToggleBtn = document.getElementById("theme-toggle");
+
+themeToggleBtn.addEventListener("click", function () {
+  // toggle icons inside button
+  themeToggleDarkIcon.classList.toggle("hidden");
+  themeToggleLightIcon.classList.toggle("hidden");
+
+  // if set via local storage previously
+  if (localStorage.getItem("color-theme")) {
+    if (localStorage.getItem("color-theme") === "light") {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("color-theme", "dark");
     } else {
-      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("color-theme", "light");
     }
 
-    targetBody.classList.toggle("dark");
-  });
-}
-switchThemeMode();
+    // if NOT set via local storage previously
+  } else {
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("color-theme", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("color-theme", "dark");
+    }
+  }
+});
 
 displayImages();
 displayRandomBG();
