@@ -223,6 +223,7 @@ i {
 
 .modalBackdrop {
   cursor: auto;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -256,6 +257,21 @@ i {
 
 .dark #modal-footer p:hover {
   border-bottom: 1px solid #fff;
+}
+
+/* Back-to-top scroll button */
+
+#btn-back-to-top {
+  position: fixed;
+  display: none;
+  z-index: 99;
+  background: #07a081;
+  opacity: 0.8;
+}
+
+#btn-back-to-top:hover {
+  opacity: 1;
+  border: #068067 3px solid;
 }
 
 @media (max-width: 647px) {
