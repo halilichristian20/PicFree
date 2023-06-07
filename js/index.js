@@ -78,6 +78,8 @@ async function displayRandomBG() {
   background.style.backgroundColor;
 }
 
+// ########## Download Images
+
 const downloadImg = (imgURL) => {
   dlName = "image.jpg";
   fetch(imgURL)
@@ -91,6 +93,7 @@ const downloadImg = (imgURL) => {
     })
     .catch(() => alert("Failed to download the image!"));
 };
+
 // ########## Display Images
 
 async function displayImages() {

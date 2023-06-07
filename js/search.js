@@ -61,6 +61,36 @@ themeToggleBtn.addEventListener("click", function () {
   }
 });
 
+// ########## Download Images
+
+const downloadImg = (imgURL) => {
+  dlName = "image.jpg";
+  fetch(imgURL)
+    .then((res) => res.blob())
+    .then((file) => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(file);
+      a.download = dlName;
+      a.click();
+    })
+    .catch(() => alert("Failed to download the image!"));
+};
+
+// ########## Download Video
+
+const downloadVid = (vidURL) => {
+  dlName = "video.mp4";
+  fetch(vidURL)
+    .then((res) => res.blob())
+    .then((file) => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(file);
+      a.download = dlName;
+      a.click();
+    })
+    .catch(() => alert("Failed to download the video!"));
+};
+
 // ################### Fetch videos of Search Term
 
 async function searchForPhotosOrVideos() {
@@ -110,7 +140,7 @@ async function searchForPhotosOrVideos() {
             <a href="${vid.user.url}"> <i class="uil uil-camera"></i>
             <span id="name">${vid.user.name}</span></a>
             </div>
-            <button><i class="uil uil-import"></i></button>
+            <button onclick="downloadVid('${vid.video_files[2].link}')"><i class="uil uil-import"></i></button>
             </div>
 
             <!-- Main modal -->
@@ -149,7 +179,7 @@ async function searchForPhotosOrVideos() {
                       </div>
                       <!-- Modal body -->
                       <div class="flex items-center justify-center p-4 space-y-6">
-                      <video src="${vid.video_files[1].link}"
+                      <video src="${vid.video_files[2].link}"
                       type="video/mp4" class="vid" controls loop;">
                       </video>
                         
@@ -159,10 +189,10 @@ async function searchForPhotosOrVideos() {
                       class="flex items-center justify-between px-4 pb-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
                     id="modal-footer">
                     <div class="photographer">
-            <a href="${vid.user.url}"> <i class="uil uil-camera"></i>
-            <span id="name">${vid.user.name}</span></a>
+            <a href="${vid.user.url}"> <i class="uil uil-camera text-black dark:text-white"></i>
+            <span id="name" class="text-black font-medium dark:text-white">${vid.user.name}</span></a>
             </div>
-                  <button onclick="downloadImg('${vid.video_files[1].link}}')"
+                  <button onclick="downloadVid('${vid.video_files[1].link}')"
                     class="text-black-400 bg-gray-300 hover:bg-gray-400 rounded-lg text-xl p-1.5 ml-auto inline-flex items-center dark:text-gray-900 dark:hover:bg-gray-100 dark:hover:text-white"
                   >
                     <i class="uil uil-import px-2"></i>
@@ -174,6 +204,7 @@ async function searchForPhotosOrVideos() {
             
             `;
       document.querySelector(".images").appendChild(li);
+      showAndHideModal();
     });
   } else if (searchType === "photo") {
     const photoRadio = document.querySelector("#photo");
@@ -211,7 +242,7 @@ async function searchForPhotosOrVideos() {
               <a href="${img.user.links.html}"> <img id="profile-image" src="${img.user.profile_image.small}" alt=img style="width:30px")>
               <span id="name">${img.user.name}</span></a>
               </div>
-              <button><i class="uil uil-import"></i></button>
+              <button onclick="downloadImg('${img.urls.regular}')"><i class="uil uil-import"></i></button>
               </div>
               <!-- Main modal -->
                 <div

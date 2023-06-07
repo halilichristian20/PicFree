@@ -20,27 +20,136 @@ async function displayRandomBG() {
 const API_KEY = "XYT5T3yPOk1cO09fCRPeoJGqg2u8ct25prLl69N3dlI";
 const API_URL = "https://api.unsplash.com";
 
+// ########## Download Video
+
+const downloadVid = (vidURL) => {
+  dlName = "video.mp4";
+  fetch(vidURL)
+    .then((res) => res.blob())
+    .then((file) => {
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(file);
+      a.download = dlName;
+      a.click();
+    })
+    .catch(() => alert("Failed to download the video!"));
+};
+
 // Display videos via Pexels
 
 async function generateVideo() {
   const results = await fetchPexelVideoAPI();
   const allVideos = results.videos;
   allVideos.forEach((vid) => {
+    const modalId = `defaultModal${vid.id}`;
     const li = document.createElement("li");
     li.classList.add("card");
     li.innerHTML = `
     <video src="${vid.video_files[1].link}"
-        type="video/mp4" class="vid" muted loop;">
-        </video>
-    <div class="details">
-    <div class="photographer">
-    <a href="${vid.user.url}"><i class="uil uil-camera"></i>
-    <span id="name">${vid.user.name}</span></a>
-          </div>
-          <button><i class="uil uil-import"></i></button>
-          </div>`;
+                type="video/mp4" 
+                data-modal-target="${modalId}"
+                data-modal-toggle="${modalId}"
+                class="vid" muted loop;">
+                </video>
+            <div class="details">
+            <div class="photographer">
+            <a href="${vid.user.url}"> <i class="uil uil-camera"></i>
+            <span id="name">${vid.user.name}</span></a>
+            </div>
+            <button onclick="downloadVid('${vid.video_files[2].link}')"><i class="uil uil-import"></i></button>
+            </div>
+
+            <!-- Main modal -->
+                <div
+                  id="${modalId}"
+                  tabindex="-1"
+                  aria-hidden="true"
+                  class="modalBackdrop flex items-center justify-center fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden md:inset-0 h-min"
+                >
+                  <div class="relative w-full max-w-2xl max-h-full my-12" id="modal-body">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                      <!-- Modal header -->
+                      <div
+                        class="flex items-center justify-between px-4 pt-4 rounded-t dark:border-gray-600"
+                      > 
+                      
+                        <button
+                          type="button"
+                          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                          data-modal-hide="${modalId}"
+                        >
+                          <svg
+                            class="w-5 h-5"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fill-rule="evenodd"
+                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                              clip-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </div>
+                      <!-- Modal body -->
+                      <div class="flex items-center justify-center p-4 space-y-6">
+                      <video src="${vid.video_files[2].link}"
+                      type="video/mp4" class="vid" controls loop;">
+                      </video>
+                        
+                    </div>
+    
+                    <div
+                      class="flex items-center justify-between px-4 pb-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
+                    id="modal-footer">
+                    <div class="photographer">
+            <a href="${vid.user.url}"> <i class="uil uil-camera text-black dark:text-white"></i>
+            <span id="name" class="text-black font-medium dark:text-white">${vid.user.name}</span></a>
+            </div>
+                  <button onclick="downloadVid('${vid.video_files[1].link}')"
+                    class="text-black-400 bg-gray-300 hover:bg-gray-400 rounded-lg text-xl p-1.5 ml-auto inline-flex items-center dark:text-gray-900 dark:hover:bg-gray-100 dark:hover:text-white"
+                  >
+                    <i class="uil uil-import px-2"></i>
+                  </button>
+                    </div>
+                    
+                  </div>
+                </div>
+    `;
     document.querySelector(".images").appendChild(li);
+    showAndHideModal();
   });
+}
+
+function showAndHideModal() {
+  const modalHideButtons = document.querySelectorAll("[data-modal-hide]");
+  const displayImageModal = document.querySelectorAll("[data-modal-target]");
+
+  modalHideButtons.forEach((button) => {
+    button.addEventListener("click", hideModal);
+  });
+
+  displayImageModal.forEach((img) => {
+    img.addEventListener("click", showModal);
+  });
+}
+
+function hideModal() {
+  const modalId = this.getAttribute("data-modal-hide");
+  const modalElement = document.getElementById(modalId);
+  modalElement.classList.add("hidden");
+  modalElement.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "auto";
+}
+
+function showModal() {
+  const imageId = this.getAttribute("data-modal-target");
+  const modal = document.getElementById(imageId);
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
 }
 
 // ################### Display Random Background from Unplash

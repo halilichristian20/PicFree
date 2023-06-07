@@ -167,6 +167,11 @@ h3 {
 .photographer span {
   font-size: 1rem;
   margin-top: 3px;
+  border-bottom: 1px solid transparent;
+}
+
+.photographer span:hover {
+  border-bottom: 1px solid #fff;
 }
 
 .photographer #name {
@@ -225,6 +230,10 @@ i {
   max-height: 700px;
 }
 
+#modal-body video {
+  max-height: 700px;
+}
+
 #modal-likes i:hover {
   color: red;
 }
@@ -241,11 +250,11 @@ i {
   margin-top: 0;
 }
 
-#modal-footer span:hover {
+#modal-footer p:hover {
   border-bottom: 1px solid #333;
 }
 
-.dark #modal-footer span:hover {
+.dark #modal-footer p:hover {
   border-bottom: 1px solid #fff;
 }
 
