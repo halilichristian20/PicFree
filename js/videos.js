@@ -34,10 +34,10 @@ async function generateVideo() {
         </video>
     <div class="details">
     <div class="photographer">
-    <a href="${vid.user.url}"><i class="fa-solid fa-camera"></i>
-    <span class="hover:underline">${vid.user.name}</span></a>
+    <a href="${vid.user.url}"><i class="uil uil-camera"></i>
+    <span id="name">${vid.user.name}</span></a>
           </div>
-          <button><i class="fa-solid fa-download"></i></button>
+          <button><i class="uil uil-import"></i></button>
           </div>`;
     document.querySelector(".images").appendChild(li);
   });

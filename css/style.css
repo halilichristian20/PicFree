@@ -149,24 +149,35 @@ h3 {
 
 .photographer a {
   display: flex;
+  flex-wrap: wrap;
+  margin-top: 5px;
 }
 
 .photographer img {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-right: 10px;
-  border-radius: 50%;
+  border-radius: 100%;
 }
 
 .photographer i {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-right: 10px;
-  margin-top: 3px;
 }
 
 .photographer span {
-  font-size: 0.98rem;
-  padding-top: 3px;
+  font-size: 1rem;
+  margin-top: 3px;
 }
+
+.photographer #name {
+  margin-top: 7px;
+}
+
+.photographer p {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
 .gallery button,
 i {
   outline: none;
@@ -201,6 +212,41 @@ i {
 
 #search-btn:hover {
   opacity: 0.9;
+}
+
+/* ##### Modal ##### */
+
+.modalBackdrop {
+  cursor: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modal-body img {
+  max-height: 700px;
+}
+
+#modal-likes i:hover {
+  color: red;
+}
+
+#modal-social:hover {
+  color: #f58529;
+}
+
+#modal-footer span {
+  border-bottom: 1px solid transparent;
+}
+
+#modal-span {
+  margin-top: 0;
+}
+
+#modal-footer span:hover {
+  border-bottom: 1px solid #333;
+}
+
+.dark #modal-footer span:hover {
+  border-bottom: 1px solid #fff;
 }
 
 @media (max-width: 647px) {
