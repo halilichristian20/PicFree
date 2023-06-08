@@ -4,7 +4,7 @@
 const global = {
   currentPage: window.location.pathname,
 };
-const perPage = 15;
+const perPage = 20;
 let currentPage = 1;
 
 // ########## Dark Mode & localStorage

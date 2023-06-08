@@ -1,7 +1,6 @@
 const global = {
   currentPage: window.location.pathname,
 };
-const videosWrapper = document.querySelector(".images");
 
 const perPage = 20;
 let currentPage = 1;
@@ -61,7 +60,7 @@ themeToggleBtn.addEventListener("click", function () {
   }
 });
 
-// ########## Download Images
+// ########## Download Image
 
 const downloadImg = (imgURL) => {
   dlName = "image.jpg";
@@ -91,7 +90,9 @@ const downloadVid = (vidURL) => {
     .catch(() => alert("Failed to download the video!"));
 };
 
-// ################### Fetch videos of Search Term
+// ########## Fetch videos of Search Term
+
+const videosWrapper = document.querySelector(".images");
 
 async function searchForPhotosOrVideos() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -346,6 +347,8 @@ async function searchForPhotosOrVideos() {
   }
 }
 
+// ########## Display/Hide Modal
+
 function showAndHideModal() {
   const modalHideButtons = document.querySelectorAll("[data-modal-hide]");
   const displayImageModal = document.querySelectorAll("[data-modal-target]");
@@ -375,7 +378,7 @@ function showModal() {
   document.body.style.overflow = "hidden";
 }
 
-// ################### Load More Photos/Videos from Unsplash/Pexels
+// ########## Load More Photos/Videos from Unsplash/Pexels
 
 async function loadMore() {
   currentPage++;
@@ -407,7 +410,7 @@ function backToTop() {
     behavior: "smooth",
   });
 }
-// ################### Fetch Videos from Pexels
+// ########## Fetch Videos from Pexels
 
 async function fetchPexelVideoAPI(query) {
   const apiUrl = `https://api.pexels.com/videos/search?${query}&page=${currentPage}&per_page=${perPage}`;
@@ -421,7 +424,7 @@ async function fetchPexelVideoAPI(query) {
   return data;
 }
 
-// ################### Fetch Images from Unsplash
+// ########## Fetch Images from Unsplash
 
 async function fetchAPIData(endpoint) {
   const API_KEY = "F_AlrteKQ31bG2Gz9qt6eP94IkHZdOjnYQafFuuKFGc";
@@ -434,7 +437,7 @@ async function fetchAPIData(endpoint) {
   return data;
 }
 
-// ################### Show Alert on Search
+// ########## Show Alert on Search
 
 function showAlert(message) {
   const alert = document.querySelector("#search-query");
@@ -442,7 +445,7 @@ function showAlert(message) {
   alert.innerHTML = message;
 }
 
-// ################### Play/pause video on mouseover/mouseout functions
+// ########## Play/pause video on mouseover/mouseout functions
 
 function pauseVideo(e) {
   const video = e.target;
@@ -454,9 +457,19 @@ function playVideo(e) {
   video.play();
 }
 
-// ################### Routes
-
 searchForPhotosOrVideos();
+
+// ########## Hide footer
+
+const footer = document.querySelector("footer");
+
+window.addEventListener("scroll", function () {
+  if (document.documentElement.pageYOffset > 0) {
+    footer.style.display = "hidden";
+  } else {
+    footer.style.display = "block";
+  }
+});
 
 // ################### Event Listeners
 
