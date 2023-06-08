@@ -122,7 +122,7 @@ async function displayImages() {
                         alt="img"
                         style="width: 30px"
                       />
-                      <span class="hover:underline">${img.user.name}</span></a
+                      <span>${img.user.name}</span></a
                     >
                   </div>
                   <button onclick="downloadImg('${img.urls.regular}')"><i class="uil uil-import"></i></button>
