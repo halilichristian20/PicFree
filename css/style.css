@@ -244,16 +244,13 @@ i {
   color: #f58529;
 }
 
-#modal-footer span {
-  border-bottom: 1px solid transparent;
+#modal-footer button {
+  background: #07a081;
+  color: white;
 }
 
-#modal-footer p:hover {
-  border-bottom: 1px solid #333;
-}
-
-.dark #modal-footer p:hover {
-  border-bottom: 1px solid #fff;
+#modal-footer button:hover {
+  opacity: 0.8;
 }
 
 /* Back-to-top scroll button */

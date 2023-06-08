@@ -105,103 +105,122 @@ async function displayImages() {
   results.forEach((img) => {
     const modalId = `defaultModal${img.id}`;
     imagesWrapper.innerHTML += `
-              <li class="card">
-                <img
-                  data-modal-target="${modalId}"
-                  data-modal-toggle="${modalId}"
-                  type="button"
-                  src="${img.urls.regular}"
-                  alt="img"
-                />
-                <div class="details">
-                  <div class="photographer">
-                    <a href="${img.user.links.html}">
-                      <img
-                        id="profile-image"
-                        src="${img.user.profile_image.small}"
-                        alt="img"
-                        style="width: 30px"
-                      />
-                      <span class="mt-1">${img.user.name}</span></a
-                    >
-                  </div>
-                  <button onclick="downloadImg('${img.urls.regular}')"><i class="uil uil-import"></i></button>
-                </div>
-                <!-- Main modal -->
-                <div
-                  id="${modalId}"
-                  tabindex="-1"
-                  aria-hidden="true"
-                  class="modalBackdrop flex items-center justify-center fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden md:inset-0 h-min"
-                >
-                  <div class="relative w-full max-w-2xl max-h-full my-12" id="modal-body">
-                    <!-- Modal content -->
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                      <!-- Modal header -->
-                      <div
-                        class="flex items-center justify-between px-4 pt-4 rounded-t dark:border-gray-600"
-                      > <span class="dark:text-white" id="modal-likes"><i class="fa-regular fa-heart fa-xl"> </i>  ${img.likes}</span>
-                      <a href="https://www.instagram.com/${img.user.social.instagram_username}" class="ml-12 ">
-                      <span class="dark:text-white" id="modal-social">
-                      <i class="fa-brands fa-instagram fa-xl"></i> ${img.user.social.instagram_username}
-                      </span>
-                      </a>
-    
-                      
-                        <button
-                          type="button"
-                          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                          data-modal-hide="${modalId}"
-                        >
-                          <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              fill-rule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
-                            ></path>
-                          </svg>
-                        </button>
-                      </div>
-                      <!-- Modal body -->
-                      <div class="p-4 space-y-6">
-                        <img src="${img.urls.regular}" alt="img" class="rounded"  />
-                        
-                    </div>
-    
-                    <div
-                      class="flex items-center justify-between px-4 pb-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
-                    id="modal-footer">
+                <li class="card">
+                  <img
+                    data-modal-target="${modalId}"
+                    data-modal-toggle="${modalId}"
+                    type="button"
+                    src="${img.urls.regular}"
+                    alt="img"
+                  />
+                  <div class="details">
                     <div class="photographer">
-                    <a href="${img.user.links.html}">
-                      <img
-                        class="border-2 border-green-500"
-                        id="profile-image"
-                        src="${img.user.profile_image.small}"
-                        alt="img"
-                        style="width:30px"
-                      />
-                    
-                    <p
-                      class="text-black font-medium dark:text-white mt-1"
-                      >${img.user.name}</p></a>
-                  </div>
-                  <button onclick="downloadImg('${img.urls.regular}')"
-                    class="text-black-400 bg-gray-300 hover:bg-gray-400 rounded-lg text-xl p-1.5 ml-auto inline-flex items-center dark:text-gray-900 dark:hover:bg-gray-100 dark:hover:text-white"
-                  >
-                    <i class="uil uil-import px-2"></i>
-                  </button>
+                      <a href="${img.user.links.html}">
+                        <img
+                          id="profile-image"
+                          src="${img.user.profile_image.small}"
+                          alt="img"
+                          style="width: 30px"
+                        />
+                        <span class="mt-1">${img.user.name}</span></a
+                      >
                     </div>
-                    
+                    <button onclick="downloadImg('${img.urls.regular}')"><i class="uil uil-import"></i></button>
                   </div>
-                </div>
-              </li>
+                  <!-- Main modal -->
+                  <div
+                    id="${modalId}"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    class="modalBackdrop flex items-center justify-center fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden md:inset-0 h-min"
+                  >
+                    <div class="relative w-full max-w-2xl max-h-full my-12" id="modal-body">
+                      <!-- Modal content -->
+                      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <!-- Modal header -->
+                        <div id="modal-head"
+                          class="flex items-center justify-between px-4 pt-4 rounded-t dark:border-gray-600"
+                        >
+                        <div class="photographer">
+                        <a href="${img.user.links.html}">
+                          <img
+                            class="border-2 border-green-500"
+                            id="profile-image"
+                            src="${img.user.profile_image.small}"
+                            alt="img"
+                            style="width:30px"
+                          />
+                        
+                        <p
+                          class="text-black font-medium dark:text-white mt-1"
+                          >${img.user.name}</p></a>
+                      </div> 
+                        
+                        <span class="dark:text-white" id="modal-likes"><i class="fa-regular fa-heart fa-xl ml-12"> </i>  ${img.likes}</span>
+                        <a href="https://www.instagram.com/${img.user.social.instagram_username}" class="ml-12 ">
+                        <span class="dark:text-white" id="modal-social">
+                        <i class="fa-brands fa-instagram fa-xl"></i> ${img.user.social.instagram_username}
+                        </span>
+                        </a>
       
-                `;
+                        
+                          <button
+                            type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="${modalId}"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="p-4 space-y-6">
+                          <img src="${img.urls.regular}" alt="img" class="rounded"  />
+                          
+                      </div>
+      
+                      <div
+                        class="flex items-center justify-center px-4 pb-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
+                      id="modal-footer">
+                      <p class="text-black font-medium dark:text-white mt-1"
+                        >Download:</p></a>
+
+                    <button onclick="downloadImg('${img.urls.small}')" type="button"
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
+                    Small
+                    </button>
+
+                    <button onclick="downloadImg('${img.urls.regular}')" type="button"
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
+                    Medium
+                    </button>
+
+                    <button onclick="downloadImg('${img.urls.raw}')" type="button"
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
+                    Large
+                    </button>
+
+                    <button onclick="downloadImg('${img.urls.full}')" type="button"
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
+                    Original
+                    </button>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </li>
+        
+                  `;
   });
   showAndHideModal();
 }

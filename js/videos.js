@@ -40,6 +40,8 @@ const downloadVid = (vidURL) => {
 async function generateVideo() {
   const results = await fetchPexelVideoAPI();
   const allVideos = results.videos;
+
+  console.log(allVideos);
   allVideos.forEach((vid) => {
     const modalId = `defaultModal${vid.id}`;
     const li = document.createElement("li");
