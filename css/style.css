@@ -103,6 +103,11 @@ h3 {
   border: #07a081 2px solid;
 }
 
+.dark #nav-s-button {
+  color: #fff;
+  border: #fff 2px solid;
+}
+
 /* ##### Image and Video Gallery */
 
 .gallery {
