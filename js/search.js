@@ -138,7 +138,7 @@ async function searchForPhotosOrVideos() {
             <div class="details">
             <div class="photographer">
             <a href="${vid.user.url}"> <i class="uil uil-camera"></i>
-            <span id="name">${vid.user.name}</span></a>
+            <span class="mt-2">${vid.user.name}</span></a>
             </div>
             <button onclick="downloadVid('${vid.video_files[2].link}')"><i class="uil uil-import"></i></button>
             </div>
@@ -190,7 +190,9 @@ async function searchForPhotosOrVideos() {
                     id="modal-footer">
                     <div class="photographer">
             <a href="${vid.user.url}"> <i class="uil uil-camera text-black dark:text-white"></i>
-            <span id="name" class="text-black font-medium dark:text-white">${vid.user.name}</span></a>
+            <p
+                      class="text-black font-medium dark:text-white mt-2"
+                      >${vid.user.name}</p></a>
             </div>
                   <button onclick="downloadVid('${vid.video_files[1].link}')"
                     class="text-black-400 bg-gray-300 hover:bg-gray-400 rounded-lg text-xl p-1.5 ml-auto inline-flex items-center dark:text-gray-900 dark:hover:bg-gray-100 dark:hover:text-white"
@@ -240,7 +242,7 @@ async function searchForPhotosOrVideos() {
           <div class="details">
               <div class="photographer">
               <a href="${img.user.links.html}"> <img id="profile-image" src="${img.user.profile_image.small}" alt=img style="width:30px")>
-              <span id="name">${img.user.name}</span></a>
+              <span class="mt-1">${img.user.name}</span></a>
               </div>
               <button onclick="downloadImg('${img.urls.regular}')"><i class="uil uil-import"></i></button>
               </div>
@@ -299,11 +301,11 @@ async function searchForPhotosOrVideos() {
                         id="profile-image"
                         src="${img.user.profile_image.small}"
                         alt="img"
-                        style="width: 35px; height: 30px"
+                        style="width: 30px"
                       />
                     
                     <p
-                      class="text-black font-medium dark:text-white" id="modal-span"
+                      class="text-black font-medium dark:text-white mt-1"
                       >${img.user.name}</p></a>
                   </div>
                   <button onclick="downloadImg('${img.urls.regular}')"

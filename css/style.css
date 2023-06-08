@@ -121,11 +121,19 @@ h3 {
   margin-bottom: 14px;
   border-radius: 4px;
 }
+
 .gallery .images img {
   width: 100%;
   z-index: 2;
   position: relative;
 }
+
+.gallery .images video {
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+
 .images .details {
   position: absolute;
   z-index: 4;
@@ -150,7 +158,6 @@ h3 {
 .photographer a {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 5px;
 }
 
 .photographer img {
@@ -166,7 +173,6 @@ h3 {
 
 .photographer span {
   font-size: 1rem;
-  margin-top: 3px;
   border-bottom: 1px solid transparent;
 }
 
@@ -174,13 +180,8 @@ h3 {
   border-bottom: 1px solid #fff;
 }
 
-.photographer #name {
-  margin-top: 7px;
-}
-
 .photographer p {
   font-size: 1rem;
-  margin-top: 5px;
 }
 
 .gallery button,
@@ -247,10 +248,6 @@ i {
   border-bottom: 1px solid transparent;
 }
 
-#modal-span {
-  margin-top: 0;
-}
-
 #modal-footer p:hover {
   border-bottom: 1px solid #333;
 }
@@ -285,22 +282,6 @@ i {
   #search-query {
     align-items: center;
   }
-
-  /*   .photographer img {
-    font-size: 1.5rem;
-    margin-right: 10px;
-  }
-
-  .photographer span {
-    font-size: 1.2rem;
-    padding-top: 3px;
-  }
-
-  .details button {
-    font-size: 1.2rem;
-    padding: 3px 8px;
-  }
-} */
 
   @media (min-width: 0) and (max-width: 640px) {
     #radioItems {

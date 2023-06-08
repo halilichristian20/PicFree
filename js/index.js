@@ -122,7 +122,7 @@ async function displayImages() {
                         alt="img"
                         style="width: 30px"
                       />
-                      <span>${img.user.name}</span></a
+                      <span class="mt-1">${img.user.name}</span></a
                     >
                   </div>
                   <button onclick="downloadImg('${img.urls.regular}')"><i class="uil uil-import"></i></button>
@@ -179,14 +179,15 @@ async function displayImages() {
                     <div class="photographer">
                     <a href="${img.user.links.html}">
                       <img
+                        class="border-2 border-green-500"
                         id="profile-image"
                         src="${img.user.profile_image.small}"
                         alt="img"
-                        style="width: 35px; height: 30px"
+                        style="width:30px"
                       />
                     
                     <p
-                      class="text-black font-medium dark:text-white" id="modal-span"
+                      class="text-black font-medium dark:text-white mt-1"
                       >${img.user.name}</p></a>
                   </div>
                   <button onclick="downloadImg('${img.urls.regular}')"
