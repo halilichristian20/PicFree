@@ -188,7 +188,7 @@ async function searchForPhotosOrVideos() {
                     </div>
     
                     <div
-                      class="flex items-center justify-between px-4 pb-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
+                      class="flex items-center justify-between px-4 pb-5 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
                     id="modal-footer">
                     <div class="photographer">
             <a href="${vid.user.url}"> <i class="uil uil-camera text-black dark:text-white"></i>
@@ -259,7 +259,7 @@ async function searchForPhotosOrVideos() {
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                       <!-- Modal header -->
-                      <div
+                      <div id="modal-header"
                         class="flex items-center justify-between px-4 pt-4 rounded-t dark:border-gray-600"
                       > 
                       <div class="photographer">
@@ -311,7 +311,7 @@ async function searchForPhotosOrVideos() {
                     </div>
     
                     <div
-                      class="flex items-center justify-center px-4 pb-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
+                      class="flex items-center justify-center px-4 pb-5 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
                     id="modal-footer">
                     <p class="text-black font-medium dark:text-white mt-1"
                         >Download:</p></a>
@@ -402,10 +402,11 @@ function scrollFunction() {
 mybutton.addEventListener("click", backToTop);
 
 function backToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 }
-
 // ################### Fetch Videos from Pexels
 
 async function fetchPexelVideoAPI(query) {

@@ -104,7 +104,7 @@ async function generateVideo() {
                     </div>
     
                     <div
-                      class="flex items-center justify-between px-4 pb-6 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
+                      class="flex items-center justify-between px-4 pb-5 space-x-2 border-gray-200 rounded-b dark:border-gray-600"
                     id="modal-footer">
                     <div class="photographer">
             <a href="${vid.user.url}"> <i class="uil uil-camera text-black dark:text-white"></i>
@@ -175,8 +175,10 @@ function scrollFunction() {
 mybutton.addEventListener("click", backToTop);
 
 function backToTop() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 }
 
 // ################### Display Random Background from Unplash
