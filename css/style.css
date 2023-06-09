@@ -258,6 +258,19 @@ i {
   color: red;
 }
 
+#modal-head p {
+  margin-top: 5px;
+}
+
+#modal-head p,
+span {
+  font-size: 15px;
+}
+
+#modal-footer p {
+  font-size: 15px;
+}
+
 #modal-social:hover {
   color: #f58529;
 }
@@ -299,9 +312,38 @@ i {
   }
 
   @media (min-width: 0) and (max-width: 640px) {
+    #hero h1 {
+      font-size: 25px;
+    }
     #radioItems {
       display: flex;
       min-width: 60%;
+    }
+
+    #modal-head * {
+      margin: 0;
+      padding: 0;
+      font-size: 8px;
+    }
+
+    #modal-head p {
+      font-size: 8px;
+      margin-top: 10px;
+      margin-left: 2px;
+    }
+
+    #modal-footer {
+      justify-content: space-between;
+      /* display: block; */
+    }
+
+    #modal-footer button {
+      width: 50px;
+      padding: 0;
+    }
+
+    #modal-footer p {
+      font-size: 7px;
     }
   }
 }

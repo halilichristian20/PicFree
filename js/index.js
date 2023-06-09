@@ -94,6 +94,22 @@ const downloadImg = (imgURL) => {
     .catch(() => alert("Failed to download the image!"));
 };
 
+// ########## Back-to-top
+
+let mybutton = document.getElementById("btn-back-to-top");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
 // ########## Display Images
 
 async function displayImages() {
@@ -196,23 +212,19 @@ async function displayImages() {
                         >Download:</p></a>
 
                     <button onclick="downloadImg('${img.urls.small}')" type="button"
-                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    Small
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i><p>Small</p>
                     </button>
 
                     <button onclick="downloadImg('${img.urls.regular}')" type="button"
-                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    Medium
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i><p>Medium</p>
                     </button>
 
                     <button onclick="downloadImg('${img.urls.raw}')" type="button"
-                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    Large
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i><p>Large</p>
                     </button>
 
                     <button onclick="downloadImg('${img.urls.full}')" type="button"
-                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    Original
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i><p>Original</p>
                     </button>
                       </div>
                       
@@ -251,6 +263,7 @@ function showModal() {
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+  modal.style.zIndex = "888";
 }
 
 // ########## Load More Images
@@ -259,22 +272,6 @@ async function loadMoreImages() {
   currentPage++;
   await displayImages();
   showAndHideModal();
-}
-
-// ########## Back-to-top
-
-let mybutton = document.getElementById("btn-back-to-top");
-
-window.onscroll = function () {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
 }
 
 mybutton.addEventListener("click", backToTop);
