@@ -428,7 +428,7 @@ async function fetchPexelVideoAPI(query) {
 // ########## Fetch Images from Unsplash
 
 async function fetchAPIData(endpoint) {
-  const API_KEY = "XYT5T3yPOk1cO09fCRPeoJGqg2u8ct25prLl69N3dlI";
+  const API_KEY = "F_AlrteKQ31bG2Gz9qt6eP94IkHZdOjnYQafFuuKFGc";
   const API_URL = "https://api.unsplash.com";
   const response = await fetch(
     `${API_URL}${endpoint}&page=${currentPage}&per_page=${perPage}&client_id=${API_KEY}`
