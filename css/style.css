@@ -342,8 +342,12 @@ span {
       padding: 0;
     }
 
+    #modal-footer button p {
+      font-size: 8px;
+    }
+
     #modal-footer p {
-      font-size: 7px;
+      font-size: 10px;
     }
   }
 }

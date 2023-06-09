@@ -260,10 +260,10 @@ async function searchForPhotosOrVideos() {
                     <!-- Modal content -->
                     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                       <!-- Modal header -->
-                      <div id="modal-header"
-                        class="flex items-center justify-between px-4 pt-4 rounded-t dark:border-gray-600"
-                      > 
-                      <div class="photographer">
+                      <div id="modal-head"
+                          class="flex items-center justify-between px-4 pt-4 rounded-t dark:border-gray-600"
+                        >
+                        <div class="photographer">
                         <a href="${img.user.links.html}">
                           <img
                             class="border-2 border-green-500"
@@ -274,37 +274,37 @@ async function searchForPhotosOrVideos() {
                           />
                         
                         <p
-                          class="text-black font-medium dark:text-white mt-1 hover:underline-offset-auto"
+                          class="text-black font-medium dark:text-white mt-1"
                           >${img.user.name}</p></a>
                       </div> 
                         
                         <span class="dark:text-white" id="modal-likes"><i class="fa-regular fa-heart fa-xl ml-12"> </i>  ${img.likes}</span>
-                      <a href="https://www.instagram.com/${img.user.social.instagram_username}" class="ml-12 ">
-                      <span class="dark:text-white" id="modal-social">
-                      <i class="fa-brands fa-instagram fa-xl"></i> ${img.user.social.instagram_username}
-                      </span>
-                      </a>
-    
-                      
-                        <button
-                          type="button"
-                          class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                          data-modal-hide="${modalId}"
-                        >
-                          <svg
-                            class="w-5 h-5"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
+                        <a href="https://www.instagram.com/${img.user.social.instagram_username}" class="ml-12 ">
+                        <span class="dark:text-white" id="modal-social">
+                        <i class="fa-brands fa-instagram fa-xl"></i> ${img.user.social.instagram_username}
+                        </span>
+                        </a>
+      
+                        
+                          <button
+                            type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="${modalId}"
                           >
-                            <path
-                              fill-rule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              clip-rule="evenodd"
-                            ></path>
-                          </svg>
-                        </button>
-                      </div>
+                            <svg
+                              class="w-5 h-5"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
                       <!-- Modal body -->
                       <div class="p-4 space-y-6">
                         <img src="${img.urls.regular}" alt="img" class="rounded"  />
@@ -318,23 +318,23 @@ async function searchForPhotosOrVideos() {
                         >Download:</p></a>
 
                     <button onclick="downloadImg('${img.urls.small}')" type="button"
-                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    Small
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i><p>Small</p>
+                    
                     </button>
 
                     <button onclick="downloadImg('${img.urls.regular}')" type="button"
                     class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    Medium
+                    <p>Medium</p>
                     </button>
 
                     <button onclick="downloadImg('${img.urls.raw}')" type="button"
                     class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    Large
+                    <p>Large</p>
                     </button>
 
                     <button onclick="downloadImg('${img.urls.full}')" type="button"
                     class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    Original
+                    <p>Original</p>
                     </button>
                     </div>
                     
