@@ -248,6 +248,7 @@ i {
 
 #modal-body img {
   max-height: 700px;
+  object-fit: cover;
 }
 
 #modal-body video {

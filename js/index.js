@@ -212,23 +212,23 @@ async function displayImages() {
                         >Download:</p></a>
 
                         <button onclick="downloadImg('${img.urls.small}')" type="button"
-                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i><p>Small</p>
+                    class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i><p class="mx-auto">Small</p>
                     
                     </button>
 
                     <button onclick="downloadImg('${img.urls.regular}')" type="button"
                     class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    <p>Medium</p>
+                    <p class="mx-auto">Medium</p>
                     </button>
 
                     <button onclick="downloadImg('${img.urls.raw}')" type="button"
                     class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    <p>Large</p>
+                    <p class="mx-auto">Large</p>
                     </button>
 
                     <button onclick="downloadImg('${img.urls.full}')" type="button"
                     class="text-white focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2"><i class="uil uil-import"></i>
-                    <p>Original</p>
+                    <p class="mx-auto">Original</p>
                     </button>
                       </div>
                       
