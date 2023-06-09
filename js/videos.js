@@ -154,6 +154,7 @@ function showModal() {
   modal.classList.remove("hidden");
   modal.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
+  modal.style.zIndex = "888";
 }
 
 // ########## Back-to-top
